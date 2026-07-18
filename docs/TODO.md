@@ -21,10 +21,10 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 1 — Persistence layer
 
-- [ ] **1.1 DB setup.** `db.py` with SQLAlchemy engine/session against
+- [x] **1.1 DB setup.** `db.py` with SQLAlchemy engine/session against
   `games.db`.
   *Verify:* running the app creates `games.db` on disk.
-- [ ] **1.2 Models.** `Game` and `Move` models per TECH_DESIGN §5; create tables
+- [x] **1.2 Models.** `Game` and `Move` models per TECH_DESIGN §5; create tables
   on startup.
   *Verify:* open `games.db` (or a shell) and confirm `games`/`moves` tables and
   columns exist.
