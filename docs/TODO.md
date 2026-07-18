@@ -31,31 +31,31 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 2 — Rules engine wrapper (no HTTP yet)
 
-- [ ] **2.1 New board + FEN.** `chess_service` can create a starting board and
+- [x] **2.1 New board + FEN.** `chess_service` can create a starting board and
   return its FEN.
   *Verify:* `pytest` unit test in `tests/test_chess_service.py` asserts the
   standard start FEN.
-- [ ] **2.2 Replay moves.** Given a UCI move list, rebuild the board.
+- [x] **2.2 Replay moves.** Given a UCI move list, rebuild the board.
   *Verify:* `pytest` unit test: replay `["e2e4","e7e5"]` → expected FEN.
-- [ ] **2.3 Legal-move listing.** Return legal moves as
+- [x] **2.3 Legal-move listing.** Return legal moves as
   `{from,to,san,promotion}` for the side to move (and filtered by a `from`
   square).
   *Verify:* `pytest` unit test: 20 legal moves from start; `from=e2` yields
   `e3,e4`.
-- [ ] **2.4 Apply a move + SAN.** Validate, compute SAN pre-push, push, return
+- [x] **2.4 Apply a move + SAN.** Validate, compute SAN pre-push, push, return
   new state; reject illegal moves with an error.
   *Verify:* `pytest` unit test: legal move returns SAN `e4`; illegal move
   raises the expected error.
-- [ ] **2.5 Terminal detection.** Detect and label checkmate, stalemate,
+- [x] **2.5 Terminal detection.** Detect and label checkmate, stalemate,
   threefold repetition, fifty-move, insufficient material; also expose
   `in_check`.
   *Verify:* `pytest` unit tests per condition (e.g. fool's mate → `checkmate`;
   known stalemate FEN → `stalemate`).
-- [ ] **2.6 Promotion.** Support all four promotion pieces via the `promotion`
+- [x] **2.6 Promotion.** Support all four promotion pieces via the `promotion`
   field.
   *Verify:* `pytest` unit test: `e7e8` with `promotion="n"` yields a knight;
   SAN `=N`.
-- [ ] **2.7 DTO assembly.** Build the canonical Game-State DTO (§3.1) from a
+- [x] **2.7 DTO assembly.** Build the canonical Game-State DTO (§3.1) from a
   `Game` + replayed board.
   *Verify:* `pytest` unit test in `tests/test_chess_service.py` asserts the
   DTO has all required keys with correct values for a known board state.
