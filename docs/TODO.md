@@ -62,27 +62,27 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 3 — REST API
 
-- [ ] **3.1 Create game.** `POST /api/games` with `player1_color` + optional
+- [x] **3.1 Create game.** `POST /api/games` with `player1_color` + optional
   `alias`; generate id; persist; return DTO.
   *Verify:* `curl -X POST` returns 201 with an id, correct colors, start FEN,
   `turn_player`.
-- [ ] **3.2 Get game.** `GET /api/games/{id}` returns the full DTO (§3.1),
+- [x] **3.2 Get game.** `GET /api/games/{id}` returns the full DTO (§3.1),
   including `legal_moves` and `move_history`.
   *Verify:* fetch the created game; DTO matches; unknown id → 404.
-- [ ] **3.3 Submit move.** `POST /api/games/{id}/moves`; on legal move persist +
+- [x] **3.3 Submit move.** `POST /api/games/{id}/moves`; on legal move persist +
   return updated DTO; illegal → 422 with clear message; finished game → 409.
   *Verify:* play `e2e4`; history has `e4`, turn flips. Send `e2e5` → 422 with
   message.
-- [ ] **3.4 Legal-moves endpoint.** `GET /api/games/{id}/legal-moves?from=e2`.
+- [x] **3.4 Legal-moves endpoint.** `GET /api/games/{id}/legal-moves?from=e2`.
   *Verify:* returns `e3,e4` from the start position.
-- [ ] **3.5 List games.** `GET /api/games?status=in_progress|finished` returns
+- [x] **3.5 List games.** `GET /api/games?status=in_progress|finished` returns
   summaries (§6.1).
   *Verify:* create two games; list shows both; filter by status works.
-- [ ] **3.6 Stats.** `GET /api/stats` returns P1/P2 wins and draws over finished
+- [x] **3.6 Stats.** `GET /api/stats` returns P1/P2 wins and draws over finished
   games.
   *Verify:* drive a game to checkmate via the API; stats reflect one win for the
   correct player.
-- [ ] **3.7 Error contract.** Uniform `{error:{code,message}}` with the statuses
+- [x] **3.7 Error contract.** Uniform `{error:{code,message}}` with the statuses
   in §6.2.
   *Verify:* trigger each error and confirm status + code.
 
