@@ -5,16 +5,16 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 0 — Project scaffolding
 
-- [ ] **0.1 Repo layout.** Create `backend/`, `frontend/`, keep `docs/`.
+- [x] **0.1 Repo layout.** Create `backend/`, `frontend/`, keep `docs/`.
   *Verify:* folders exist; `docs/` has PRD, TECH_DESIGN, TODO.
-- [ ] **0.2 Python env + deps.** `requirements.txt` with `flask`, `python-chess`,
+- [x] **0.2 Python env + deps.** `requirements.txt` with `flask`, `python-chess`,
   `SQLAlchemy`, `pytest`; create a virtualenv and install.
   *Verify:* `python -c "import flask, chess, sqlalchemy, pytest"` runs with no
   error.
-- [ ] **0.3 Flask "hello".** `app.py` app factory serving `GET /api/health`
+- [x] **0.3 Flask "hello".** `app.py` app factory serving `GET /api/health`
   → `{"status":"ok"}`.
   *Verify:* `curl localhost:5000/api/health` returns the JSON.
-- [ ] **0.4 Test scaffolding.** Create `tests/` with `conftest.py` (empty or
+- [x] **0.4 Test scaffolding.** Create `tests/` with `conftest.py` (empty or
   shared fixtures) per TECH_DESIGN §8/§10.
   *Verify:* `pytest` runs from the repo root with zero errors (zero tests
   collected is fine at this point).
