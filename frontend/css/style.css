@@ -195,6 +195,38 @@ body {
   font-style: italic;
 }
 
+.history-entry {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  max-width: 80%;
+  padding: 0.35rem 0.65rem;
+  border-radius: 10px;
+  font-size: 0.92rem;
+}
+
+.history-entry.white {
+  align-self: flex-start;
+  background: #2a2f38;
+  border-bottom-left-radius: 2px;
+}
+
+.history-entry.black {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #14161a;
+  border-bottom-right-radius: 2px;
+}
+
+.history-number {
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.history-san {
+  font-weight: 600;
+}
+
 .promotion-modal {
   position: fixed;
   inset: 0;

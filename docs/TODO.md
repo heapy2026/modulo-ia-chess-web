@@ -120,7 +120,7 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 5 — Move history panel (chat style)
 
-- [ ] **5.1 Render history.** Chat-style list from DTO `move_history` (move
+- [x] **5.1 Render history.** Chat-style list from DTO `move_history` (move
   number, side, SAN); auto-scroll to latest.
   *Verify:* after several moves the panel matches the game and scrolls to the
   newest entry.

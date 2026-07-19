@@ -11,6 +11,7 @@
   const bannerEl = document.getElementById("banner");
   const invalidMoveEl = document.getElementById("invalid-move-message");
   const promotionModalEl = document.getElementById("promotion-modal");
+  const historyListEl = document.getElementById("history-list");
 
   let currentGame = null;
   let selectedSquare = null;
@@ -39,6 +40,7 @@
 
     renderTurnIndicator(dto);
     renderBanner(dto);
+    renderHistory(historyListEl, dto.move_history);
   }
 
   function renderTurnIndicator(dto) {
