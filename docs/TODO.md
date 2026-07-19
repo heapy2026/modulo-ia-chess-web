@@ -143,13 +143,13 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 7 — Polish & verification
 
-- [ ] **7.1 Full manual E2E.** Play a complete game start→checkmate in the
+- [x] **7.1 Full manual E2E.** Play a complete game start→checkmate in the
   browser, exercising highlight, invalid move, promotion, check/mate, history,
   lists, and stats.
   *Verify:* the TECH_DESIGN §10 manual checklist passes end-to-end.
-- [ ] **7.2 Restart persistence.** Restart the server mid-game; reopen the game.
+- [x] **7.2 Restart persistence.** Restart the server mid-game; reopen the game.
   *Verify:* the board and history are fully restored from the DB.
-- [ ] **7.3 README.** How to install, run, and play.
+- [x] **7.3 README.** How to install, run, and play.
   *Verify:* a fresh clone can be run following only the README.
 
 ---
