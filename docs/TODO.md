@@ -127,18 +127,18 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 6 — Lobby: multiple games, history & stats
 
-- [ ] **6.1 Create-game UI.** Form/modal to pick Player 1's color + optional
+- [x] **6.1 Create-game UI.** Form/modal to pick Player 1's color + optional
   alias; on submit, open the new game.
   *Verify:* creating a game with alias "Test" opens it and it appears in the
   active list.
-- [ ] **6.2 Active games list.** Show all `in_progress` games (id, alias, whose
+- [x] **6.2 Active games list.** Show all `in_progress` games (id, alias, whose
   turn, created); clicking one opens it.
   *Verify:* two concurrent games both appear; switching between them preserves
   each board/history.
-- [ ] **6.3 Finished-games history.** List finished games showing **only the
+- [x] **6.3 Finished-games history.** List finished games showing **only the
   winner** (P1 / P2 / Draw).
   *Verify:* a finished game appears with the correct winner and no move list.
-- [ ] **6.4 Statistics view.** Show P1 wins, P2 wins, draws from `/api/stats`.
+- [x] **6.4 Statistics view.** Show P1 wins, P2 wins, draws from `/api/stats`.
   *Verify:* counts match the finished-games outcomes.
 
 ## Phase 7 — Polish & verification

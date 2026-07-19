@@ -3,6 +3,9 @@
  * renders it, and drives the select -> highlight -> submit -> repaint cycle.
  * The server is the single source of truth; this module never decides move
  * legality itself, only filters the DTO's precomputed `legal_moves`.
+ *
+ * Exposes `GameController.open(gameId)`, called by lobby.js once it has
+ * decided the game view (rather than the lobby) should be shown.
  */
 
 (function () {
@@ -154,20 +157,14 @@
     render();
   }
 
-  async function init() {
-    const params = new URLSearchParams(window.location.search);
-    const existingId = params.get("game");
-
-    if (existingId) {
-      currentGame = await api.getGame(existingId);
-    } else {
-      currentGame = await api.createGame("white", null);
-      params.set("game", currentGame.id);
-      window.history.replaceState(null, "", `?${params.toString()}`);
-    }
-
+  async function open(gameId) {
+    selectedSquare = null;
+    pendingPromotion = null;
+    hidePromotionModal();
+    clearInvalidMove();
+    currentGame = await api.getGame(gameId);
     render();
   }
 
-  init();
+  window.GameController = { open };
 })();

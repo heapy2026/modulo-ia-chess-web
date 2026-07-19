@@ -29,10 +29,19 @@ const api = {
     return apiRequest(`/api/games/${id}`);
   },
 
+  listGames(status) {
+    const query = status ? `?status=${encodeURIComponent(status)}` : "";
+    return apiRequest(`/api/games${query}`);
+  },
+
   submitMove(id, { from, to, promotion }) {
     return apiRequest(`/api/games/${id}/moves`, {
       method: "POST",
       body: { from, to, promotion: promotion || null },
     });
+  },
+
+  getStats() {
+    return apiRequest("/api/stats");
   },
 };
