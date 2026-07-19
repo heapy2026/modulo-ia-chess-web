@@ -1,0 +1,235 @@
+:root {
+  --square-light: #ece3d0;
+  --square-dark: #6e5847;
+  --highlight: rgba(60, 160, 90, 0.55);
+  --selected: rgba(240, 190, 60, 0.65);
+  --panel-bg: #20242b;
+  --panel-fg: #eee9dd;
+  --accent: #c9a24b;
+  --danger: #b3452f;
+  --board-size: min(72vh, 88vw, 640px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #14161a;
+  color: var(--panel-fg);
+}
+
+#app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.turn-indicator {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: #2a2f38;
+  border: 1px solid var(--accent);
+}
+
+.banner {
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.banner.check {
+  background: #4a3418;
+  color: #f2c76b;
+  border: 1px solid #f2c76b;
+}
+
+.banner.finished {
+  background: #1d3a2a;
+  color: #7fe0a4;
+  border: 1px solid #7fe0a4;
+}
+
+.banner.hidden,
+.invalid-move.hidden,
+.promotion-modal.hidden {
+  display: none;
+}
+
+.invalid-move {
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+  background: #3a1d1d;
+  color: #f2a08c;
+  border: 1px solid var(--danger);
+  font-weight: 600;
+}
+
+.layout {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.board {
+  width: var(--board-size);
+  height: var(--board-size);
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  border: 4px solid #2a2f38;
+  border-radius: 4px;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.square {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.square.light {
+  background: var(--square-light);
+}
+
+.square.dark {
+  background: var(--square-dark);
+}
+
+.square.selected::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--selected);
+}
+
+.square.highlight::after {
+  content: "";
+  position: absolute;
+  width: 32%;
+  height: 32%;
+  border-radius: 50%;
+  background: var(--highlight);
+}
+
+.square.highlight:has(.piece)::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  background: transparent;
+  border: 4px solid var(--highlight);
+}
+
+.piece {
+  width: 82%;
+  height: 82%;
+  pointer-events: none;
+}
+
+.piece-white {
+  filter: drop-shadow(0.6px 0 0 #2b2b2b) drop-shadow(-0.6px 0 0 #2b2b2b)
+    drop-shadow(0 0.6px 0 #2b2b2b) drop-shadow(0 -0.6px 0 #2b2b2b);
+}
+
+.piece-black {
+  filter: drop-shadow(0.6px 0 0 #f5f2e8) drop-shadow(-0.6px 0 0 #f5f2e8)
+    drop-shadow(0 0.6px 0 #f5f2e8) drop-shadow(0 -0.6px 0 #f5f2e8);
+}
+
+.history-panel {
+  flex: 1 1 260px;
+  max-width: 320px;
+  background: var(--panel-bg);
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: var(--board-size);
+  overflow-y: auto;
+}
+
+.history-panel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.history-list .placeholder {
+  color: #8b8f98;
+  font-style: italic;
+}
+
+.promotion-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.promotion-dialog {
+  background: var(--panel-bg);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+}
+
+.promotion-choices {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.promotion-choices button {
+  background: #2a2f38;
+  color: var(--panel-fg);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.promotion-choices button:hover {
+  background: var(--accent);
+  color: #14161a;
+}

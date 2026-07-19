@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <h1>Chess</h1>
+      <div id="turn-indicator" class="turn-indicator">&nbsp;</div>
+    </header>
+
+    <div id="banner" class="banner hidden"></div>
+    <div id="invalid-move-message" class="invalid-move hidden"></div>
+
+    <main class="layout">
+      <div id="board" class="board"></div>
+
+      <aside class="history-panel">
+        <h2>Move History</h2>
+        <ul id="history-list" class="history-list">
+          <li class="placeholder">Move history will appear here.</li>
+        </ul>
+      </aside>
+    </main>
+  </div>
+
+  <div id="promotion-modal" class="promotion-modal hidden">
+    <div class="promotion-dialog">
+      <p>Choose promotion piece</p>
+      <div class="promotion-choices">
+        <button type="button" data-piece="q">Queen</button>
+        <button type="button" data-piece="r">Rook</button>
+        <button type="button" data-piece="b">Bishop</button>
+        <button type="button" data-piece="n">Knight</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/pieces.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

@@ -88,32 +88,32 @@ Every task lists a concrete **Verify** step.
 
 ## Phase 4 — Frontend: board & single-game play
 
-- [ ] **4.1 Static serving + page shell.** `index.html` with board container and
+- [x] **4.1 Static serving + page shell.** `index.html` with board container and
   right-side history panel; Flask serves the frontend.
   *Verify:* opening the app shows the empty layout in the browser.
-- [ ] **4.2 SVG pixel-art pieces.** `pieces.js` with all 12 piece SVGs
+- [x] **4.2 SVG pixel-art pieces.** `pieces.js` with all 12 piece SVGs
   (color × type).
   *Verify:* a test render shows all pieces crisply on light/dark squares.
-- [ ] **4.3 Render board from FEN.** `board.js` draws the 8×8 board and places
+- [x] **4.3 Render board from FEN.** `board.js` draws the 8×8 board and places
   pieces from a DTO's `fen`.
   *Verify:* loading a game renders the standard starting position correctly.
-- [ ] **4.4 Turn indicator.** Show whose turn it is (color + Player label) from
+- [x] **4.4 Turn indicator.** Show whose turn it is (color + Player label) from
   `turn` / `turn_player`.
   *Verify:* indicator reads "White — Player 1" at start; flips after a move.
-- [ ] **4.5 Select + highlight.** Clicking a side-to-move piece highlights its
+- [x] **4.5 Select + highlight.** Clicking a side-to-move piece highlights its
   legal destinations (from DTO `legal_moves`).
   *Verify:* clicking `e2` pawn highlights `e3`/`e4`; clicking an opponent piece
   highlights nothing.
-- [ ] **4.6 Submit move + repaint.** Click a highlighted square → POST move →
+- [x] **4.6 Submit move + repaint.** Click a highlighted square → POST move →
   repaint from returned DTO; auto-clear selection.
   *Verify:* a full legal move updates the board and the turn indicator.
-- [ ] **4.7 Invalid-move message.** On 422, show `error.message` clearly; board
+- [x] **4.7 Invalid-move message.** On 422, show `error.message` clearly; board
   unchanged.
   *Verify:* force an illegal move path; message appears; position unchanged.
-- [ ] **4.8 Promotion chooser.** When target move is `promotion`, prompt Q/R/B/N
+- [x] **4.8 Promotion chooser.** When target move is `promotion`, prompt Q/R/B/N
   and submit the choice.
   *Verify:* march a pawn to the last rank; choosing "Knight" places a knight.
-- [ ] **4.9 Check / checkmate / draw banners.** Show a check notice; on
+- [x] **4.9 Check / checkmate / draw banners.** Show a check notice; on
   `finished`, announce winner or draw type and lock the board.
   *Verify:* reproduce a check (banner) and a fool's mate (winner banner + locked
   board); a stalemate FEN game shows a draw banner.
