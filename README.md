@@ -73,6 +73,12 @@ Open [http://localhost:5000](http://localhost:5000) in a browser to play.
 
 Board orientation is fixed with White at the bottom for both players.
 
+## Screenshots
+
+| Board & move history | Lobby & statistics |
+| --- | --- |
+| ![Board with move history panel](static/screenshots/board-move-history.png) | ![Lobby with active/finished games and stats donut chart](static/screenshots/lobby-stats.png) |
+
 ## Tests
 
 Run the test suite from the repo root:
