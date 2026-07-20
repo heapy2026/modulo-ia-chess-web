@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <header class="app-header">
+      <h1>Chess</h1>
+      <div id="game-header-controls" class="game-header-controls hidden">
+        <button type="button" id="back-to-lobby" class="link-button">&larr; Lobby</button>
+        <div id="turn-indicator" class="turn-indicator">&nbsp;</div>
+      </div>
+    </header>
+
+    <div id="lobby-view" class="lobby-view">
+      <section class="lobby-section">
+        <h2>New Game</h2>
+        <form id="create-game-form" class="create-game-form">
+          <label>
+            Player 1 color
+            <select id="create-game-color">
+              <option value="white">White</option>
+              <option value="black">Black</option>
+            </select>
+          </label>
+          <label>
+            Alias (optional)
+            <input type="text" id="create-game-alias" placeholder="e.g. Friday match" maxlength="60">
+          </label>
+          <button type="submit">Start Game</button>
+        </form>
+      </section>
+
+      <section class="lobby-section">
+        <h2>Active Games</h2>
+        <ul id="active-games-list" class="game-list">
+          <li class="placeholder">No active games yet.</li>
+        </ul>
+      </section>
+
+      <section class="lobby-section">
+        <h2>Finished Games</h2>
+        <ul id="finished-games-list" class="game-list">
+          <li class="placeholder">No finished games yet.</li>
+        </ul>
+      </section>
+
+      <section class="lobby-section">
+        <h2>Statistics</h2>
+        <div id="stats-panel" class="stats-panel">
+          <div class="donut-wrap">
+            <svg id="stats-donut" class="stats-donut" viewBox="0 0 160 160" role="img" aria-label="Breakdown of finished games by result"></svg>
+            <div class="donut-center">
+              <span id="stats-total" class="donut-total">0</span>
+              <span class="donut-total-label">games</span>
+            </div>
+          </div>
+          <ul id="stats-legend" class="stats-legend"></ul>
+        </div>
+      </section>
+    </div>
+
+    <div id="game-view" class="hidden">
+      <div id="banner" class="banner hidden"></div>
+      <div id="invalid-move-message" class="invalid-move hidden"></div>
+
+      <main class="layout">
+        <div id="board" class="board"></div>
+
+        <aside class="history-panel">
+          <h2>Move History</h2>
+          <ul id="history-list" class="history-list">
+            <li class="placeholder">Move history will appear here.</li>
+          </ul>
+        </aside>
+      </main>
+    </div>
+  </div>
+
+  <div id="chart-tooltip" class="chart-tooltip hidden" role="status"></div>
+
+  <div id="promotion-modal" class="promotion-modal hidden">
+    <div class="promotion-dialog">
+      <p>Choose promotion piece</p>
+      <div class="promotion-choices">
+        <button type="button" data-piece="q">Queen</button>
+        <button type="button" data-piece="r">Rook</button>
+        <button type="button" data-piece="b">Bishop</button>
+        <button type="button" data-piece="n">Knight</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/pieces.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/history.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/lobby.js"></script>
+</body>
+</html>
